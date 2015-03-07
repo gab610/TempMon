@@ -11,7 +11,7 @@ module.exports = Temps = React.createClass({
     // Build list items of single temp components using map
     var content = this.props.temps.map(function(temp){
       return (
-        <Temp key={temp._id} temp={temp} />
+        <Temp key={temp.id} temp={temp} />
       )
     });
 

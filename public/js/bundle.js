@@ -37,8 +37,8 @@ module.exports = Temp = React.createClass({displayName: 'Temp',
     return (
       React.DOM.li({className: "temp" + (temp.active ? ' active' : '')}, 
         React.DOM.img({src: temp.trend, className: "trend"}), 
-		React.DOM.span({className: "temp-value"}, "@", temp.value), 
-		React.DOM.span({className: "temp-time"}, "@", temp.time)
+		React.DOM.span({className: "temp-value"}, temp.value), 
+		React.DOM.span({className: "temp-time"}, temp.time)
       )
     )
   }
@@ -57,7 +57,7 @@ module.exports = Temps = React.createClass({displayName: 'Temps',
     // Build list items of single temp components using map
     var content = this.props.temps.map(function(temp){
       return (
-        Temp({key: temp._id, temp: temp})
+        Temp({key: temp.id, temp: temp})
       )
     });
 

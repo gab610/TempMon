@@ -45,7 +45,7 @@ module.exports = {
 		  trend: 0,
 		  active: true,
 		  value: t,
-		  time: d,
+		  time: d.toLocaleString(),
 		};
 
 		// create a new model instance with our object
@@ -55,6 +55,7 @@ module.exports = {
 		tempentry.save(function(err) {
 		  if (!err) {
 			// if everything is cool, socket.io emits the temp.
+			temp.id = tempentry._id;
 			io.emit('temp', temp);
 		  }
 		});

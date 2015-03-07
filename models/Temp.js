@@ -19,17 +19,14 @@ schema.statics.getTemps = function(page, skip, callback) {
 
     // If everything is cool...
     if(!err) {
-      temps = docs;  // We got temps
-      temps.forEach(function(temp){
-        temp.active = true; // Set them to active
+      docs.forEach(function(doc){
+        temps.push({time: doc.time.toLocaleString(), value: doc.value, active:true, trend:0, id: doc._id})
       });
     }
 
     // Pass them back to the specified callback
     callback(temps);
-
   });
-
 };
 
 // Return a Temp model based upon the defined schema
