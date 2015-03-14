@@ -20,7 +20,7 @@ schema.statics.getTemps = function(page, skip, callback) {
     // If everything is cool...
     if(!err) {
       docs.forEach(function(doc){
-        temps.push({time: doc.time.toLocaleString(), value: doc.value, active:true, trend:0, id: doc._id})
+        temps.push({time: doc.time.toLocaleString(), value: doc.value, active:true, trend: doc.trend, id: doc._id})
       });
     }
 
