@@ -48,18 +48,21 @@ module.exports = {
 		  time: d.toLocaleString(),
 		};
 
-		// create a new model instance with our object
-		var tempentry = new Temp(temp);
-
-		// save 'er to the database
-		tempentry.save(function(err) {
-		  if (!err) {
-			// if everything is cool, socket.io emits the temp.
-			temp.id = tempentry._id;
-			io.emit('temp', temp);
-		  }
+		Temp.lastTemp(function(lastTemp) {
+            if (lastTemp != null && lastTemp != undefined) {
+                if (temp.value > lastTemp.value) temp.trend = 1;
+                if (temp.value < lastTemp.value) temp.trend = -1;
+            }    
+            var tempentry = new Temp(temp);                
+            tempentry.save(function (err) {
+                if (!err) {
+                    // if no error emit the posted temp with socket.io
+                    temp.id = tempentry._id;
+                    io.emit('temp', temp);
+                }
+            });
 		});
-		
+			
 		res.status(200).send('RECD'); 
 	  }
 	}

@@ -34,9 +34,13 @@ var React = require('react');
 module.exports = Temp = React.createClass({displayName: 'Temp',
   render: function(){
     var temp = this.props.temp;
+	var img = 'img/same16.png';
+	if (temp.trend < 0) img = 'img/down16.png';
+	if (temp.trend > 0) img = 'img/up16.png';
+		
     return (
       React.DOM.li({className: "temp" + (temp.active ? ' active' : '')}, 
-        React.DOM.img({src: temp.trend, className: "trend"}), 
+        React.DOM.img({src: img, className: "trend"}), 
 		React.DOM.span({className: "temp-value"}, temp.value), 
 		React.DOM.span({className: "temp-time"}, temp.time)
       )

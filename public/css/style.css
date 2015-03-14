@@ -1,4 +1,4 @@
-*
+﻿*
 {
     box-sizing: border-box;
 }
@@ -224,6 +224,35 @@ footer .update-message
 .temp:after
 {
     clear: both;
+}
+
+.temp-time
+{
+float: right;
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px;
+  
+}
+
+.temp-value
+{
+ font-weight: bold;
+  /* margin: 10px; */
+  /*vertical-align: super;*/
+  padding-left: 20px;
+}
+
+.trend
+{
+display: inline;
+  margin-top: 8px;
+  padding-left: 5px;
+}
+
+.trend .up
+{
+	content:url(
 }
 
 @media (max-width: 650px)

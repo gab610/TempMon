@@ -1,0 +1,2 @@
+C:\NodeDemo\tempMonitor\obj\Debug\TempMonitor.njsprojResolveAssemblyReference.cache
+C:\NodeDemo\tempMonitor\bin\Microsoft.NodejsTools.WebRole.dll

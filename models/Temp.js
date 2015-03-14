@@ -29,5 +29,13 @@ schema.statics.getTemps = function(page, skip, callback) {
   });
 };
 
+schema.statics.lastTemp = function(callback) {
+	 Temp.findOne().sort('-time').exec(function(err, t) {
+		if (err)
+            console.log(err);
+        callback(t);
+	 });
+};
+
 // Return a Temp model based upon the defined schema
 module.exports = Temp = mongoose.model('Temp', schema);
