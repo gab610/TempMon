@@ -7,7 +7,9 @@
     "watch": "watchify app.js -o public/js/bundle.js -v",
     "browserify": "browserify app.js | uglifyjs > public/js/bundle.js",
     "build": "npm run browserify ",
-    "start": "npm run watch & nodemon server.js"
+    "start": "node server.js",
+    "install-windows-service": "winser -i",
+    "uninstall-windows-service": "winser -r"
   },
   "dependencies": {
     "body-parser": "^1.12.0",
